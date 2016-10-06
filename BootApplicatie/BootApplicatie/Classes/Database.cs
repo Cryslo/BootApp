@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace BootApplicatie.Classes
 {
-    class Database : Form
+    class Database
     {
         private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + "\\BootappDB.MDF;Integrated Security=True";
         SqlConnection conn = new SqlConnection(connectionString);
