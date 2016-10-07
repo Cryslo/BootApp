@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bootverhuur
 {
-    public class Boot
+    public class Boot : Artikel
     {
         string naam;
 
@@ -25,11 +25,6 @@ namespace Bootverhuur
             {
                 naam = value;
             }
-        }
-        public void AddBoatToDB(string id)
-        {
-            DatabaseAcess db = new DatabaseAcess();
-            //db.Add_BoatToDB(id, naam);
         }
     }
 }

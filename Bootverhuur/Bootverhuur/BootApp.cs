@@ -21,8 +21,7 @@ namespace Bootverhuur
             InitializeComponent();
             dbAcess = new DatabaseAcess();
             dg_Huurders.DataSource = dbAcess.GetVerhuurders("HuurContracten");
-            dg_boten.DataSource = dbAcess.GetBoten("Boten");
-            cb_Boot.DataSource = dbAcess.Columnrequest("Boot", "Boten");
+            UpdateBoten();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,7 +47,15 @@ namespace Bootverhuur
 
         private void btn_delete_db_Click(object sender, EventArgs e)
         {
+            try
+            {
+                dbAcess.Delete_HuurContract(Convert.ToInt32(dg_Huurders.SelectedRows[0].Cells[0].Value));
+                dg_Huurders.DataSource = dbAcess.GetVerhuurders("HuurContracten");
+            }
+            catch (Exception)
+            {
 
+            }
         }
 
         private void dt_from_ValueChanged(object sender, EventArgs e)
@@ -61,19 +68,37 @@ namespace Bootverhuur
             //Add boot aan de lijst/DB
             Boot boot = new Boot(txt_bootnaam.Text);
             dbAcess.Add_BootToDB(boot);
-            dg_boten.DataSource = dbAcess.GetBoten("Boten");
+            UpdateBoten();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             Motorboot motorboot = new Motorboot(txt_mtrbootnaam.Text, Convert.ToInt32(txt_brandstof.Value), Convert.ToInt32(txt_actieradius.Value));
             dbAcess.Add_BootToDB(motorboot);
-            dg_boten.DataSource = dbAcess.GetBoten("Boten");
+            UpdateBoten();
         }
 
         private void btn_boten_refresh_Click(object sender, EventArgs e)
         {
+            UpdateBoten();
+        }
+
+        private void btn_boot_del_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dbAcess.Delete_BootFromDB(Convert.ToInt32(dg_boten.SelectedRows[0].Cells[0].Value));
+                dg_boten.DataSource = dbAcess.GetBoten("Boten");
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+        private void UpdateBoten()
+        {
             dg_boten.DataSource = dbAcess.GetBoten("Boten");
+            cb_Boot.DataSource = dbAcess.Columnrequest("Boot", "Boten");
         }
     }
 }

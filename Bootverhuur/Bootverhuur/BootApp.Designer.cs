@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dt_til = new System.Windows.Forms.DateTimePicker();
             this.dt_from = new System.Windows.Forms.DateTimePicker();
-            this.txt_ID = new System.Windows.Forms.TextBox();
             this.btn_addtodb = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cb_extraart = new System.Windows.Forms.ComboBox();
@@ -47,21 +46,23 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_addboat = new System.Windows.Forms.Button();
-            this.txt_bootnaam = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_delete_db = new System.Windows.Forms.Button();
+            this.btn_boten_refresh = new System.Windows.Forms.Button();
+            this.dg_boten = new System.Windows.Forms.DataGridView();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txt_bootnaam = new System.Windows.Forms.TextBox();
+            this.btn_addboat = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btn_addmotorboot = new System.Windows.Forms.Button();
-            this.txt_mtrbootnaam = new System.Windows.Forms.TextBox();
-            this.txt_brandstof = new System.Windows.Forms.NumericUpDown();
-            this.txt_actieradius = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dg_boten = new System.Windows.Forms.DataGridView();
-            this.btn_boten_refresh = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_actieradius = new System.Windows.Forms.NumericUpDown();
+            this.txt_brandstof = new System.Windows.Forms.NumericUpDown();
+            this.txt_mtrbootnaam = new System.Windows.Forms.TextBox();
+            this.btn_addmotorboot = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_delete_db = new System.Windows.Forms.Button();
+            this.btn_boot_del = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_Huurders)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,12 +70,12 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_boten)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_brandstof)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_actieradius)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_boten)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_brandstof)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_refresh
@@ -89,9 +90,13 @@
             // 
             // dg_Huurders
             // 
+            this.dg_Huurders.AllowUserToAddRows = false;
+            this.dg_Huurders.AllowUserToDeleteRows = false;
             this.dg_Huurders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_Huurders.Location = new System.Drawing.Point(12, 395);
             this.dg_Huurders.Name = "dg_Huurders";
+            this.dg_Huurders.ReadOnly = true;
+            this.dg_Huurders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_Huurders.Size = new System.Drawing.Size(973, 217);
             this.dg_Huurders.TabIndex = 1;
             // 
@@ -100,7 +105,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dt_til);
             this.groupBox1.Controls.Add(this.dt_from);
-            this.groupBox1.Controls.Add(this.txt_ID);
             this.groupBox1.Controls.Add(this.btn_addtodb);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.txt_naam);
@@ -116,7 +120,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 220);
+            this.label2.Location = new System.Drawing.Point(6, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 9;
@@ -124,7 +128,7 @@
             // 
             // dt_til
             // 
-            this.dt_til.Location = new System.Drawing.Point(6, 263);
+            this.dt_til.Location = new System.Drawing.Point(6, 240);
             this.dt_til.Name = "dt_til";
             this.dt_til.Size = new System.Drawing.Size(200, 20);
             this.dt_til.TabIndex = 8;
@@ -132,24 +136,16 @@
             // 
             // dt_from
             // 
-            this.dt_from.Location = new System.Drawing.Point(6, 237);
+            this.dt_from.Location = new System.Drawing.Point(6, 214);
             this.dt_from.Name = "dt_from";
             this.dt_from.Size = new System.Drawing.Size(200, 20);
             this.dt_from.TabIndex = 7;
             this.dt_from.Value = new System.DateTime(2016, 10, 6, 0, 0, 0, 0);
             this.dt_from.ValueChanged += new System.EventHandler(this.dt_from_ValueChanged);
             // 
-            // txt_ID
-            // 
-            this.txt_ID.Location = new System.Drawing.Point(6, 19);
-            this.txt_ID.Name = "txt_ID";
-            this.txt_ID.Size = new System.Drawing.Size(100, 20);
-            this.txt_ID.TabIndex = 6;
-            this.txt_ID.Text = "ID";
-            // 
             // btn_addtodb
             // 
-            this.btn_addtodb.Location = new System.Drawing.Point(5, 289);
+            this.btn_addtodb.Location = new System.Drawing.Point(5, 266);
             this.btn_addtodb.Name = "btn_addtodb";
             this.btn_addtodb.Size = new System.Drawing.Size(129, 22);
             this.btn_addtodb.TabIndex = 5;
@@ -159,12 +155,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkedListBox1);
             this.groupBox2.Controls.Add(this.cb_extraart);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cb_Boot);
-            this.groupBox2.Location = new System.Drawing.Point(6, 120);
+            this.groupBox2.Location = new System.Drawing.Point(6, 97);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(213, 97);
+            this.groupBox2.Size = new System.Drawing.Size(278, 97);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Artikelen";
@@ -201,15 +198,15 @@
             // 
             // txt_naam
             // 
-            this.txt_naam.Location = new System.Drawing.Point(6, 42);
+            this.txt_naam.Location = new System.Drawing.Point(6, 19);
             this.txt_naam.Name = "txt_naam";
             this.txt_naam.Size = new System.Drawing.Size(100, 20);
             this.txt_naam.TabIndex = 0;
-            this.txt_naam.Text = "Naam";
+            this.txt_naam.Text = "Huurder Naam";
             // 
             // txt_Verhuurder
             // 
-            this.txt_Verhuurder.Location = new System.Drawing.Point(6, 94);
+            this.txt_Verhuurder.Location = new System.Drawing.Point(6, 71);
             this.txt_Verhuurder.Name = "txt_Verhuurder";
             this.txt_Verhuurder.Size = new System.Drawing.Size(100, 20);
             this.txt_Verhuurder.TabIndex = 2;
@@ -217,7 +214,7 @@
             // 
             // txt_Email
             // 
-            this.txt_Email.Location = new System.Drawing.Point(6, 68);
+            this.txt_Email.Location = new System.Drawing.Point(6, 45);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(100, 20);
             this.txt_Email.TabIndex = 1;
@@ -258,6 +255,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_boot_del);
             this.groupBox3.Controls.Add(this.btn_boten_refresh);
             this.groupBox3.Controls.Add(this.dg_boten);
             this.groupBox3.Controls.Add(this.tabControl2);
@@ -268,43 +266,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Boot Toevoegen";
             // 
-            // btn_addboat
+            // btn_boten_refresh
             // 
-            this.btn_addboat.Location = new System.Drawing.Point(6, 32);
-            this.btn_addboat.Name = "btn_addboat";
-            this.btn_addboat.Size = new System.Drawing.Size(100, 23);
-            this.btn_addboat.TabIndex = 3;
-            this.btn_addboat.Text = "Voeg boot toe";
-            this.btn_addboat.UseVisualStyleBackColor = true;
-            this.btn_addboat.Click += new System.EventHandler(this.btn_addboat_Click);
+            this.btn_boten_refresh.Location = new System.Drawing.Point(275, 12);
+            this.btn_boten_refresh.Name = "btn_boten_refresh";
+            this.btn_boten_refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_boten_refresh.TabIndex = 6;
+            this.btn_boten_refresh.Text = "Refresh";
+            this.btn_boten_refresh.UseVisualStyleBackColor = true;
+            this.btn_boten_refresh.Click += new System.EventHandler(this.btn_boten_refresh_Click);
             // 
-            // txt_bootnaam
+            // dg_boten
             // 
-            this.txt_bootnaam.Location = new System.Drawing.Point(6, 6);
-            this.txt_bootnaam.Name = "txt_bootnaam";
-            this.txt_bootnaam.Size = new System.Drawing.Size(100, 20);
-            this.txt_bootnaam.TabIndex = 0;
-            this.txt_bootnaam.Text = "Bootnaam";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(978, 334);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Berekening";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btn_delete_db
-            // 
-            this.btn_delete_db.Location = new System.Drawing.Point(74, 367);
-            this.btn_delete_db.Name = "btn_delete_db";
-            this.btn_delete_db.Size = new System.Drawing.Size(62, 22);
-            this.btn_delete_db.TabIndex = 5;
-            this.btn_delete_db.Text = "Verwijder";
-            this.btn_delete_db.UseVisualStyleBackColor = true;
-            this.btn_delete_db.Click += new System.EventHandler(this.btn_delete_db_Click);
+            this.dg_boten.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_boten.Location = new System.Drawing.Point(275, 41);
+            this.dg_boten.Name = "dg_boten";
+            this.dg_boten.ReadOnly = true;
+            this.dg_boten.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_boten.Size = new System.Drawing.Size(431, 198);
+            this.dg_boten.TabIndex = 5;
             // 
             // tabControl2
             // 
@@ -328,6 +308,24 @@
             this.tabPage4.Text = "Normale boot";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // txt_bootnaam
+            // 
+            this.txt_bootnaam.Location = new System.Drawing.Point(6, 6);
+            this.txt_bootnaam.Name = "txt_bootnaam";
+            this.txt_bootnaam.Size = new System.Drawing.Size(100, 20);
+            this.txt_bootnaam.TabIndex = 0;
+            this.txt_bootnaam.Text = "Bootnaam";
+            // 
+            // btn_addboat
+            // 
+            this.btn_addboat.Location = new System.Drawing.Point(6, 32);
+            this.btn_addboat.Name = "btn_addboat";
+            this.btn_addboat.Size = new System.Drawing.Size(100, 23);
+            this.btn_addboat.TabIndex = 3;
+            this.btn_addboat.Text = "Voeg boot toe";
+            this.btn_addboat.UseVisualStyleBackColor = true;
+            this.btn_addboat.Click += new System.EventHandler(this.btn_addboat_Click);
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.label4);
@@ -344,6 +342,46 @@
             this.tabPage5.Text = "Motor boot";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "ActieRadius";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Brandstof";
+            // 
+            // txt_actieradius
+            // 
+            this.txt_actieradius.Location = new System.Drawing.Point(6, 96);
+            this.txt_actieradius.Name = "txt_actieradius";
+            this.txt_actieradius.Size = new System.Drawing.Size(120, 20);
+            this.txt_actieradius.TabIndex = 10;
+            // 
+            // txt_brandstof
+            // 
+            this.txt_brandstof.Location = new System.Drawing.Point(6, 51);
+            this.txt_brandstof.Name = "txt_brandstof";
+            this.txt_brandstof.Size = new System.Drawing.Size(120, 20);
+            this.txt_brandstof.TabIndex = 9;
+            // 
+            // txt_mtrbootnaam
+            // 
+            this.txt_mtrbootnaam.Location = new System.Drawing.Point(6, 6);
+            this.txt_mtrbootnaam.Name = "txt_mtrbootnaam";
+            this.txt_mtrbootnaam.Size = new System.Drawing.Size(100, 20);
+            this.txt_mtrbootnaam.TabIndex = 8;
+            this.txt_mtrbootnaam.Text = "Bootnaam";
+            // 
             // btn_addmotorboot
             // 
             this.btn_addmotorboot.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,63 +393,47 @@
             this.btn_addmotorboot.UseVisualStyleBackColor = true;
             this.btn_addmotorboot.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // txt_mtrbootnaam
+            // tabPage3
             // 
-            this.txt_mtrbootnaam.Location = new System.Drawing.Point(6, 6);
-            this.txt_mtrbootnaam.Name = "txt_mtrbootnaam";
-            this.txt_mtrbootnaam.Size = new System.Drawing.Size(100, 20);
-            this.txt_mtrbootnaam.TabIndex = 8;
-            this.txt_mtrbootnaam.Text = "Bootnaam";
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(978, 334);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Berekening";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // txt_brandstof
+            // btn_delete_db
             // 
-            this.txt_brandstof.Location = new System.Drawing.Point(6, 51);
-            this.txt_brandstof.Name = "txt_brandstof";
-            this.txt_brandstof.Size = new System.Drawing.Size(120, 20);
-            this.txt_brandstof.TabIndex = 9;
+            this.btn_delete_db.Location = new System.Drawing.Point(74, 367);
+            this.btn_delete_db.Name = "btn_delete_db";
+            this.btn_delete_db.Size = new System.Drawing.Size(62, 22);
+            this.btn_delete_db.TabIndex = 5;
+            this.btn_delete_db.Text = "Verwijder";
+            this.btn_delete_db.UseVisualStyleBackColor = true;
+            this.btn_delete_db.Click += new System.EventHandler(this.btn_delete_db_Click);
             // 
-            // txt_actieradius
+            // btn_boot_del
             // 
-            this.txt_actieradius.Location = new System.Drawing.Point(6, 96);
-            this.txt_actieradius.Name = "txt_actieradius";
-            this.txt_actieradius.Size = new System.Drawing.Size(120, 20);
-            this.txt_actieradius.TabIndex = 10;
+            this.btn_boot_del.Location = new System.Drawing.Point(357, 12);
+            this.btn_boot_del.Name = "btn_boot_del";
+            this.btn_boot_del.Size = new System.Drawing.Size(117, 23);
+            this.btn_boot_del.TabIndex = 7;
+            this.btn_boot_del.Text = "Delete geselecteerde";
+            this.btn_boot_del.UseVisualStyleBackColor = true;
+            this.btn_boot_del.Click += new System.EventHandler(this.btn_boot_del_Click);
             // 
-            // label3
+            // checkedListBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Brandstof";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 80);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "ActieRadius";
-            // 
-            // dg_boten
-            // 
-            this.dg_boten.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_boten.Location = new System.Drawing.Point(275, 41);
-            this.dg_boten.Name = "dg_boten";
-            this.dg_boten.Size = new System.Drawing.Size(344, 198);
-            this.dg_boten.TabIndex = 5;
-            // 
-            // btn_boten_refresh
-            // 
-            this.btn_boten_refresh.Location = new System.Drawing.Point(275, 12);
-            this.btn_boten_refresh.Name = "btn_boten_refresh";
-            this.btn_boten_refresh.Size = new System.Drawing.Size(75, 23);
-            this.btn_boten_refresh.TabIndex = 6;
-            this.btn_boten_refresh.Text = "Refresh";
-            this.btn_boten_refresh.UseVisualStyleBackColor = true;
-            this.btn_boten_refresh.Click += new System.EventHandler(this.btn_boten_refresh_Click);
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Friesse Meren",
+            "Noordzee",
+            "Ijsselmeer"});
+            this.checkedListBox1.Location = new System.Drawing.Point(144, 19);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
+            this.checkedListBox1.TabIndex = 10;
             // 
             // BootApp
             // 
@@ -433,14 +455,14 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dg_boten)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_brandstof)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_actieradius)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_boten)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_brandstof)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -461,7 +483,6 @@
         private System.Windows.Forms.Button btn_addtodb;
         private System.Windows.Forms.Button btn_delete_db;
         private System.Windows.Forms.ComboBox cb_Boot;
-        private System.Windows.Forms.TextBox txt_ID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_extraart;
         private System.Windows.Forms.DateTimePicker dt_from;
@@ -481,6 +502,8 @@
         private System.Windows.Forms.NumericUpDown txt_brandstof;
         private System.Windows.Forms.DataGridView dg_boten;
         private System.Windows.Forms.Button btn_boten_refresh;
+        private System.Windows.Forms.Button btn_boot_del;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }
 

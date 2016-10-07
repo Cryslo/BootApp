@@ -8,23 +8,99 @@ namespace Bootverhuur
 {
     public class Huurcontract
     {
-        public string naam;
-        public string email;
-        public string verhuurder;
-        public string boot;
-        public string artikelen;
-        public string datumstart;
-        public string datumeind;
+        private string email;
+        private string verhuurder;
+        private string datumstart;
+        private string datumeind;
+        private List<Artikel> artikel;
+        private Huurder huurder;
 
-        public Huurcontract(string naam, string email, string verhuurder, string boot, string artikelen, string datumstart, string datumeind)
+        public string Email
         {
-            this.naam = naam;
-            this.email = email;
-            this.verhuurder = verhuurder;
-            this.boot = boot;
-            this.artikelen = artikelen;
-            this.datumstart = datumstart;
-            this.datumeind = datumeind;
+            get
+            {
+                return email;
+            }
+
+            set
+            {
+                email = value;
+            }
+        }
+
+        public string Verhuurder
+        {
+            get
+            {
+                return verhuurder;
+            }
+
+            set
+            {
+                verhuurder = value;
+            }
+        }
+
+        public string Datumstart
+        {
+            get
+            {
+                return datumstart;
+            }
+
+            set
+            {
+                datumstart = value;
+            }
+        }
+
+        public string Datumeind
+        {
+            get
+            {
+                return datumeind;
+            }
+
+            set
+            {
+                datumeind = value;
+            }
+        }
+
+        public Huurder Huurder
+        {
+            get
+            {
+                return huurder;
+            }
+
+            set
+            {
+                huurder = value;
+            }
+        }
+
+        public List<Artikel> Artikel
+        {
+            get
+            {
+                return artikel;
+            }
+
+            set
+            {
+                artikel = value;
+            }
+        }
+
+        public Huurcontract(Huurder huurder, string email, string verhuurder, List<Artikel> artikel, string datumstart, string datumeind)
+        {
+            this.Huurder = huurder;
+            this.Email = email;
+            this.Verhuurder = verhuurder;
+            this.Artikel = artikel;
+            this.Datumstart = datumstart;
+            this.Datumeind = datumeind;
             
         }
     }

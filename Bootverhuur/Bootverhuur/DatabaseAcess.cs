@@ -87,6 +87,7 @@ namespace Bootverhuur
             SqlCommand cmd = new SqlCommand(query, sqlconn);
 
             dt.Columns.AddRange(new DataColumn[]{
+            new DataColumn("BootID", typeof(Int32)),
             new DataColumn("Boot", typeof(string)),
             new DataColumn("Benzine", typeof(Int32)),
             new DataColumn("Actieradius", typeof(Int32))
@@ -97,9 +98,10 @@ namespace Bootverhuur
                 while (reader.Read())
                 {
                     DataRow newRow = dt.NewRow();
+                    newRow["BootID"] = reader.GetInt32(0);
                     newRow["Boot"] = reader.GetString(1);
-                    newRow["Benzine"] = reader.GetInt32(2);
-                    newRow["Actieradius"] = reader.GetInt32(3);
+                    newRow["Benzine"] = reader.GetString(2);
+                    newRow["Actieradius"] = reader.GetString(3);
                     dt.Rows.Add(newRow);
                 }
                 sqlconn.Close();
@@ -159,13 +161,13 @@ namespace Bootverhuur
             cmd.Connection = conn;
             try
             {
-                cmd.Parameters.AddWithValue("@NAAM", h.naam);
-                cmd.Parameters.AddWithValue("@EMAIL", h.email);
-                cmd.Parameters.AddWithValue("@VHD", h.verhuurder);
-                cmd.Parameters.AddWithValue("@BOOT", h.boot);
-                cmd.Parameters.AddWithValue("@ART", h.artikelen);
-                cmd.Parameters.AddWithValue("@DTS", h.datumstart);
-                cmd.Parameters.AddWithValue("@DTE", h.datumeind);
+                cmd.Parameters.AddWithValue("@NAAM", h.Huurder);
+                cmd.Parameters.AddWithValue("@EMAIL", h.Email);
+                cmd.Parameters.AddWithValue("@VHD", h.Verhuurder);
+                cmd.Parameters.AddWithValue("@BOOT", h.Boot);
+                cmd.Parameters.AddWithValue("@ART", h.Artikelen);
+                cmd.Parameters.AddWithValue("@DTS", h.Datumstart);
+                cmd.Parameters.AddWithValue("@DTE", h.Datumeind);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -200,10 +202,48 @@ namespace Bootverhuur
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Boten (Boot) VALUES (@boot)");
+                SqlCommand cmd = new SqlCommand("INSERT INTO Boten (Boot, Benzine, Actieradius) VALUES (@boot, @benzinge, @ar)");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@boot", h.Naam);
+                cmd.Parameters.AddWithValue("@benzine", h.Benzine);
+                cmd.Parameters.AddWithValue("@ar", h.Actieradius);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception a)
+            {
+                conn.Close();
+                MessageBox.Show(a.Message);
+            }
+        }
+        public void Delete_BootFromDB(int id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Boten WHERE BootID = " + id);
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = conn;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception a)
+            {
+                conn.Close();
+                MessageBox.Show(a.Message);
+            }
+        }
+        public void Delete_HuurContract(int id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Huurcontracten WHERE ContractID = " + id);
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = conn;
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
