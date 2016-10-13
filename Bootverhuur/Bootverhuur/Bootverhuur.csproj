@@ -68,7 +68,6 @@
     <Compile Include="Classes\Huurder.cs" />
     <Compile Include="Classes\Meer.cs" />
     <Compile Include="Classes\Motorboot.cs" />
-    <Compile Include="DatabaseAcess.cs" />
     <Compile Include="BootApp.cs">
       <SubType>Form</SubType>
     </Compile>

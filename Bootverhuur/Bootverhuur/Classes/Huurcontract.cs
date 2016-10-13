@@ -8,25 +8,11 @@ namespace Bootverhuur
 {
     public class Huurcontract
     {
-        private string email;
         private string verhuurder;
         private string datumstart;
         private string datumeind;
         private List<Artikel> artikel;
         private Huurder huurder;
-
-        public string Email
-        {
-            get
-            {
-                return email;
-            }
-
-            set
-            {
-                email = value;
-            }
-        }
 
         public string Verhuurder
         {
@@ -93,10 +79,9 @@ namespace Bootverhuur
             }
         }
 
-        public Huurcontract(Huurder huurder, string email, string verhuurder, List<Artikel> artikel, string datumstart, string datumeind)
+        public Huurcontract(Huurder huurder, string verhuurder, List<Artikel> artikel, string datumstart, string datumeind)
         {
             this.Huurder = huurder;
-            this.Email = email;
             this.Verhuurder = verhuurder;
             this.Artikel = artikel;
             this.Datumstart = datumstart;

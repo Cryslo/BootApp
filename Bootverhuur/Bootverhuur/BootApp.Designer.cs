@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.btn_refresh = new System.Windows.Forms.Button();
-            this.dg_Huurders = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dt_til = new System.Windows.Forms.DateTimePicker();
             this.dt_from = new System.Windows.Forms.DateTimePicker();
             this.btn_addtodb = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cb_extraart = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cb_Boot = new System.Windows.Forms.ComboBox();
+            this.clb_boten = new System.Windows.Forms.CheckedListBox();
+            this.clb_exart = new System.Windows.Forms.CheckedListBox();
+            this.clb_Meren = new System.Windows.Forms.CheckedListBox();
             this.txt_naam = new System.Windows.Forms.TextBox();
             this.txt_Verhuurder = new System.Windows.Forms.TextBox();
             this.txt_Email = new System.Windows.Forms.TextBox();
@@ -46,8 +45,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_boot_del = new System.Windows.Forms.Button();
             this.btn_boten_refresh = new System.Windows.Forms.Button();
-            this.dg_boten = new System.Windows.Forms.DataGridView();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.txt_bootnaam = new System.Windows.Forms.TextBox();
@@ -61,16 +60,14 @@
             this.btn_addmotorboot = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btn_delete_db = new System.Windows.Forms.Button();
-            this.btn_boot_del = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_Huurders)).BeginInit();
+            this.lb_Contracten = new System.Windows.Forms.ListBox();
+            this.lb_boten = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_boten)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -88,18 +85,6 @@
             this.btn_refresh.UseVisualStyleBackColor = true;
             this.btn_refresh.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dg_Huurders
-            // 
-            this.dg_Huurders.AllowUserToAddRows = false;
-            this.dg_Huurders.AllowUserToDeleteRows = false;
-            this.dg_Huurders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_Huurders.Location = new System.Drawing.Point(12, 395);
-            this.dg_Huurders.Name = "dg_Huurders";
-            this.dg_Huurders.ReadOnly = true;
-            this.dg_Huurders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_Huurders.Size = new System.Drawing.Size(973, 217);
-            this.dg_Huurders.TabIndex = 1;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
@@ -112,7 +97,7 @@
             this.groupBox1.Controls.Add(this.txt_Email);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(448, 328);
+            this.groupBox1.Size = new System.Drawing.Size(695, 328);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Toevoegen Huurder";
@@ -155,46 +140,49 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkedListBox1);
-            this.groupBox2.Controls.Add(this.cb_extraart);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.cb_Boot);
+            this.groupBox2.Controls.Add(this.clb_boten);
+            this.groupBox2.Controls.Add(this.clb_exart);
+            this.groupBox2.Controls.Add(this.clb_Meren);
             this.groupBox2.Location = new System.Drawing.Point(6, 97);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(278, 97);
+            this.groupBox2.Size = new System.Drawing.Size(637, 97);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Artikelen";
             // 
-            // cb_extraart
+            // clb_boten
             // 
-            this.cb_extraart.FormattingEnabled = true;
-            this.cb_extraart.Items.AddRange(new object[] {
-            "Ja",
-            "Nee"});
-            this.cb_extraart.Location = new System.Drawing.Point(7, 63);
-            this.cb_extraart.Name = "cb_extraart";
-            this.cb_extraart.Size = new System.Drawing.Size(121, 21);
-            this.cb_extraart.TabIndex = 8;
-            this.cb_extraart.Text = "Nee";
+            this.clb_boten.FormattingEnabled = true;
+            this.clb_boten.Items.AddRange(new object[] {
+            "Kano"});
+            this.clb_boten.Location = new System.Drawing.Point(8, 19);
+            this.clb_boten.Name = "clb_boten";
+            this.clb_boten.Size = new System.Drawing.Size(226, 64);
+            this.clb_boten.TabIndex = 12;
             // 
-            // label1
+            // clb_exart
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Extra artikelen?";
+            this.clb_exart.FormattingEnabled = true;
+            this.clb_exart.Items.AddRange(new object[] {
+            "Zwemvest",
+            "Paddels",
+            "Kampeer spullen"});
+            this.clb_exart.Location = new System.Drawing.Point(252, 19);
+            this.clb_exart.Name = "clb_exart";
+            this.clb_exart.Size = new System.Drawing.Size(120, 64);
+            this.clb_exart.TabIndex = 11;
             // 
-            // cb_Boot
+            // clb_Meren
             // 
-            this.cb_Boot.FormattingEnabled = true;
-            this.cb_Boot.Location = new System.Drawing.Point(7, 19);
-            this.cb_Boot.Name = "cb_Boot";
-            this.cb_Boot.Size = new System.Drawing.Size(121, 21);
-            this.cb_Boot.TabIndex = 3;
-            this.cb_Boot.Text = "Boot";
+            this.clb_Meren.FormattingEnabled = true;
+            this.clb_Meren.Items.AddRange(new object[] {
+            "Friesse Meren",
+            "Noordzee",
+            "Ijsselmeer"});
+            this.clb_Meren.Location = new System.Drawing.Point(423, 20);
+            this.clb_Meren.Name = "clb_Meren";
+            this.clb_Meren.Size = new System.Drawing.Size(120, 64);
+            this.clb_Meren.TabIndex = 10;
             // 
             // txt_naam
             // 
@@ -255,9 +243,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lb_boten);
             this.groupBox3.Controls.Add(this.btn_boot_del);
             this.groupBox3.Controls.Add(this.btn_boten_refresh);
-            this.groupBox3.Controls.Add(this.dg_boten);
             this.groupBox3.Controls.Add(this.tabControl2);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
@@ -265,6 +253,16 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Boot Toevoegen";
+            // 
+            // btn_boot_del
+            // 
+            this.btn_boot_del.Location = new System.Drawing.Point(357, 12);
+            this.btn_boot_del.Name = "btn_boot_del";
+            this.btn_boot_del.Size = new System.Drawing.Size(117, 23);
+            this.btn_boot_del.TabIndex = 7;
+            this.btn_boot_del.Text = "Delete geselecteerde";
+            this.btn_boot_del.UseVisualStyleBackColor = true;
+            this.btn_boot_del.Click += new System.EventHandler(this.btn_boot_del_Click);
             // 
             // btn_boten_refresh
             // 
@@ -275,16 +273,6 @@
             this.btn_boten_refresh.Text = "Refresh";
             this.btn_boten_refresh.UseVisualStyleBackColor = true;
             this.btn_boten_refresh.Click += new System.EventHandler(this.btn_boten_refresh_Click);
-            // 
-            // dg_boten
-            // 
-            this.dg_boten.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_boten.Location = new System.Drawing.Point(275, 41);
-            this.dg_boten.Name = "dg_boten";
-            this.dg_boten.ReadOnly = true;
-            this.dg_boten.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_boten.Size = new System.Drawing.Size(431, 198);
-            this.dg_boten.TabIndex = 5;
             // 
             // tabControl2
             // 
@@ -413,49 +401,40 @@
             this.btn_delete_db.UseVisualStyleBackColor = true;
             this.btn_delete_db.Click += new System.EventHandler(this.btn_delete_db_Click);
             // 
-            // btn_boot_del
+            // lb_Contracten
             // 
-            this.btn_boot_del.Location = new System.Drawing.Point(357, 12);
-            this.btn_boot_del.Name = "btn_boot_del";
-            this.btn_boot_del.Size = new System.Drawing.Size(117, 23);
-            this.btn_boot_del.TabIndex = 7;
-            this.btn_boot_del.Text = "Delete geselecteerde";
-            this.btn_boot_del.UseVisualStyleBackColor = true;
-            this.btn_boot_del.Click += new System.EventHandler(this.btn_boot_del_Click);
+            this.lb_Contracten.FormattingEnabled = true;
+            this.lb_Contracten.Location = new System.Drawing.Point(7, 395);
+            this.lb_Contracten.Name = "lb_Contracten";
+            this.lb_Contracten.Size = new System.Drawing.Size(978, 212);
+            this.lb_Contracten.TabIndex = 6;
             // 
-            // checkedListBox1
+            // lb_boten
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Friesse Meren",
-            "Noordzee",
-            "Ijsselmeer"});
-            this.checkedListBox1.Location = new System.Drawing.Point(144, 19);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 64);
-            this.checkedListBox1.TabIndex = 10;
+            this.lb_boten.FormattingEnabled = true;
+            this.lb_boten.Location = new System.Drawing.Point(275, 47);
+            this.lb_boten.Name = "lb_boten";
+            this.lb_boten.Size = new System.Drawing.Size(511, 186);
+            this.lb_boten.TabIndex = 7;
             // 
             // BootApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 624);
+            this.Controls.Add(this.lb_Contracten);
             this.Controls.Add(this.btn_delete_db);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.dg_Huurders);
             this.Controls.Add(this.btn_refresh);
             this.Name = "BootApp";
             this.Text = "Boten Verhuur";
-            ((System.ComponentModel.ISupportInitialize)(this.dg_Huurders)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dg_boten)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
@@ -470,7 +449,6 @@
         #endregion
 
         private System.Windows.Forms.Button btn_refresh;
-        private System.Windows.Forms.DataGridView dg_Huurders;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txt_naam;
@@ -482,9 +460,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btn_addtodb;
         private System.Windows.Forms.Button btn_delete_db;
-        private System.Windows.Forms.ComboBox cb_Boot;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cb_extraart;
         private System.Windows.Forms.DateTimePicker dt_from;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dt_til;
@@ -500,10 +475,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown txt_actieradius;
         private System.Windows.Forms.NumericUpDown txt_brandstof;
-        private System.Windows.Forms.DataGridView dg_boten;
         private System.Windows.Forms.Button btn_boten_refresh;
         private System.Windows.Forms.Button btn_boot_del;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox clb_Meren;
+        private System.Windows.Forms.CheckedListBox clb_exart;
+        private System.Windows.Forms.ListBox lb_Contracten;
+        private System.Windows.Forms.CheckedListBox clb_boten;
+        private System.Windows.Forms.ListBox lb_boten;
     }
 }
 

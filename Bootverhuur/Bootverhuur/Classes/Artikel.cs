@@ -26,5 +26,10 @@ namespace Bootverhuur
                 naam = value;
             }
         }
+        public override string ToString()
+        {
+            return Naam;
+        }
+
     }
 }

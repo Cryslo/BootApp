@@ -8,23 +8,14 @@ namespace Bootverhuur
 {
     public class Boot : Artikel
     {
-        string naam;
-
-        public Boot(string naam)
+        public Boot (string naam) : base(naam)
         {
-            this.naam = naam;
+            this.Naam = naam;
         }
-        public string Naam
-        {
-            get
-            {
-                return naam;
-            }
 
-            set
-            {
-                naam = value;
-            }
+        public override string ToString()
+        {
+            return Naam;
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Bootverhuur
 
         public Motorboot(string naam, int initbenzine, int initactieradius) : base(naam)
         {
-            Naam = naam;
-            benzine = initbenzine;
-            actieradius = initactieradius;
+            this.Naam = naam;
+            this.benzine = initbenzine;
+            this.actieradius = initactieradius;
         }
 
         public int Benzine
@@ -42,6 +42,10 @@ namespace Bootverhuur
             {
                 actieradius = value;
             }
+        }
+        public override string ToString()
+        {
+            return Naam + " Benzine: " + benzine + " Actieradius: " + actieradius;
         }
     }
 }
